@@ -2,12 +2,10 @@ package beecloudsdk
 
 import (
 	"encoding/json"
+	"errors"
+	"fmt"
 	"strconv"
 	"time"
-
-	"fmt"
-
-	"github.com/pkg/errors"
 )
 
 type H5WechatPayResponse struct {
@@ -18,7 +16,7 @@ type H5WechatPayResponse struct {
 
 // 微信H5支付
 func H5WechatPay(cfg *Config) (string, error) {
-	timestamp := time.Now().Unix()
+	timestamp := time.Now().UnixNano() / 1e6
 	param := map[string]interface{}{
 		"app_id":     cfg.AppId,
 		"timestamp":  timestamp,
@@ -48,7 +46,6 @@ func H5WechatPay(cfg *Config) (string, error) {
 	}
 
 	if response.ResultCode != 0 {
-		fmt.Println(response.ErrDetail)
 		return "", errors.New(response.ResultMsg)
 	}
 
