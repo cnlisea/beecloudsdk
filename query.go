@@ -2,11 +2,10 @@ package beecloudsdk
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"strconv"
 	"time"
-
-	"github.com/pkg/errors"
 )
 
 type OrderQueryResponse struct {
