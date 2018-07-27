@@ -21,7 +21,7 @@ func HttpSendPost(url string, body []byte) ([]byte, error) {
 func HttpSendGet(u string, param []byte) ([]byte, error) {
 	var b bytes.Buffer
 	b.WriteString(u)
-	b.WriteString("para=")
+	b.WriteString("?para=")
 	b.WriteString(url.QueryEscape(*(*string)(unsafe.Pointer(&param))))
 
 	res, err := http.Get(b.String())
