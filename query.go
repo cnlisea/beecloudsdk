@@ -22,7 +22,7 @@ type OrderQueryResponseBill struct {
 }
 
 func OrderQuery(cfg *Config) (*OrderQueryResponseBill, error) {
-	timestamp := time.Now().Unix()
+	timestamp := time.Now().UnixNano() / 1e6
 	param := map[string]interface{}{
 		"app_id":    cfg.AppId,
 		"timestamp": timestamp,
