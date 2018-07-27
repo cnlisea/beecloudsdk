@@ -11,7 +11,7 @@ type Config struct {
 	Title        string                 // 订单标题 32 byte
 	ReturnUrl    string                 // 同步返回地址
 	NotifyUrl    string                 // 异步通知地址
-	analysis     map[string]interface{} // 附加数据
+	Analysis     map[string]interface{} // 附加数据
 
 	NotifyBody io.ReadCloser // 异步通知数据
 }

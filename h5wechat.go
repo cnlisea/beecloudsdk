@@ -27,7 +27,7 @@ func H5WechatPay(cfg *Config) (string, error) {
 		"title":      cfg.Title,
 		"return_url": cfg.ReturnUrl,
 		"notify_url": cfg.NotifyUrl,
-		"analysis":   cfg.analysis,
+		"analysis":   cfg.Analysis,
 	}
 
 	reqBody, err := json.Marshal(&param)
